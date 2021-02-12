@@ -21,6 +21,10 @@ for el in Path('/scratch/mshumilova/filtered_by_tile/').rglob('*'):
     out2_paired = pairname.replace('.fq.gz', '.trimm_20_paired_2.fq.gz')
     out2_unpaired = out2_paired.replace('_paired', '_unpaired')
     cmd = f'java -jar Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 {str(el)} {pairname} {out1_paired} {out1_unpaired} {out2_paired} {out2_unpaired} LEADING:20 TRAILING:20 SLIDINGWINDOW:5:20 MINLEN:60'
+
     print(cmd)
     os.system(cmd) 
+
+
+
 
